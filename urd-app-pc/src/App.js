@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ホゲホゲ
+          ホゲホゲ02
         </a>
       </header>
     </div>

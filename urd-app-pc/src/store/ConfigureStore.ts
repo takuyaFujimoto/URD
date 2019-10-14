@@ -8,7 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import { connectRouter } from "connected-react-router";
 import { History } from "history";
 import rootSaga from "../controllers/index";
-// import reducer from "../modules/index";
+// TODO 増えた時ようにindexに纏められないか検証
 import { SampleState, sampleReducer } from "../modules/sample/SampleReducer";
 
 // TODO routerの部分

@@ -1,8 +1,11 @@
 import React from "react";
 import "../../css/Sample.scss";
 
-const Sample: React.FC = () => {
-  return <div className="App">sampleページ</div>;
+type SampleProps = {
+  items: string[];
+};
+const Sample: React.FC<SampleProps> = props => {
+  return <div className="App">{props.items}</div>;
 };
 
 export default Sample;

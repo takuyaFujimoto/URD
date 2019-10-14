@@ -1,20 +1,38 @@
-import { handleActions } from "redux-actions";
-import * as Action from "../../constants/ActionTypes";
+import * as ActionTypes from "../../constants/ActionTypes";
+import { sampleActions } from "./SampleAction";
 
-const initialState = {
-  items: []
+export type SampleState = {
+  items: string[];
 };
 
-export default handleActions(
-  {
-    [Action.SAMPLE_INSERT_SUCCESS]: (state, action) => ({
-      ...state,
-      ...action.payload
-    })
-    // [Action.SAMPLE_INSERT_SUCCESS] : (state, action) => ({
-    //   ...state,
-    //   items: action.payload.value
-    // }),
-  },
-  initialState
-);
+const initialState: SampleState = {
+  items: ["TEST!!!", "HOGE!!"]
+};
+
+type Actions =
+  | ReturnType<typeof sampleActions.insertItemSuccess>
+  | ReturnType<typeof sampleActions.deleteItemSuccess>;
+
+export function sampleReducer(
+  state = initialState,
+  action: Actions
+): SampleState {
+  if (!state) return initialState;
+  switch (action.type) {
+    case ActionTypes.SAMPLE_INSERT_SUCCESS: {
+      return {
+        ...state,
+        items: action.payload
+      };
+    }
+    case ActionTypes.SAMPLE_DELETE_SUCCESS: {
+      return {
+        ...state,
+        items: action.payload
+      };
+    }
+    default: {
+      return { ...state };
+    }
+  }
+}

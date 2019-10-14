@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import { Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
-import createStore from "./store/ConfigureStore";
+import { configureStore as createStore } from "./store/ConfigureStore";
 import App from "./components/App";
 import Sample from "./containers/sample/Sample";
 import "./css/index.scss";
@@ -13,6 +13,7 @@ import * as serviceWorker from "./serviceWorker";
 const history = createBrowserHistory();
 const store = createStore(history);
 
+// TODO Appの部分をAuthに変更
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

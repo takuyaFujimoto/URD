@@ -1,14 +1,11 @@
 import { put, select } from "redux-saga/effects";
-import * as ACTION from "../../constants/ActionTypes";
+import { sampleActions } from "../../modules/sample/SampleAction";
 
-function* run(action: any) {
+function* run(action: ReturnType<typeof sampleActions.insertItemRequest>) {
   const sample = yield select(state => state.sample);
   const { items } = sample;
   items.push(action.payload);
-  yield put({
-    type: ACTION.SAMPLE_INSERT_SUCCESS,
-    payload: { items }
-  });
+  yield put(sampleActions.insertItemSuccess(items));
 }
 
 export default { run };

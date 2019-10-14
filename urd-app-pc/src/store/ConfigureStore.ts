@@ -6,14 +6,21 @@ import {
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import { connectRouter } from "connected-react-router";
+import { History } from "history";
 import rootSaga from "../controllers/index";
 // import reducer from "../modules/index";
-import sampleReducer from "../modules/sample/SampleReducer";
+import { SampleState, sampleReducer } from "../modules/sample/SampleReducer";
 
-export default function configureStore(history: any) {
+// TODO routerの部分
+export type AppState = {
+  router: any;
+  sample: SampleState;
+};
+
+export const configureStore = (history: History) => {
   const sagaMiddleware = createSagaMiddleware();
   const store = reduxCreateStore(
-    combineReducers({
+    combineReducers<AppState>({
       router: connectRouter(history),
       sample: sampleReducer
     }),
@@ -21,4 +28,4 @@ export default function configureStore(history: any) {
   );
   sagaMiddleware.run(rootSaga);
   return store;
-}
+};

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 import { sampleActions } from "../../modules/sample/SampleAction";
-import component from "../../components/sample/Sample";
+import { Sample as component } from "../../components/sample/Sample";
 import { AppState } from "../../store/ConfigureStore";
 
 function mapStatetoProps(appState: AppState) {

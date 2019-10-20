@@ -1,0 +1,39 @@
+// 共通で使用する変数定義
+// 文字の大きさ
+$largeFont: 24px;
+$middleFont: 18px;
+$smallFont: 12px;
+
+// カラーコード
+$palegold: #c0b283;
+$silk: #dcd0c0;
+$paper: #f4f4f4;
+$charcoal: #373737;
+
+// ベース
+h1 {
+  font-size: $largeFont;
+}
+
+h2 {
+  font-size: $middleFont;
+}
+
+p {
+  font-size: $smallFont;
+  margin: 10px 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

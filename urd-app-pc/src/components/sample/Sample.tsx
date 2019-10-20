@@ -1,4 +1,5 @@
 import React from "react";
+import { lifecycleHook } from "../common/LifecycleHook";
 import "../../css/Sample.scss";
 
 type SampleProps = {
@@ -13,7 +14,7 @@ type SampleProps = {
   dataFetch: () => void;
 };
 
-const Sample: React.FC<SampleProps> = props => {
+const Component: React.FC<SampleProps> = props => {
   const {
     isFetch,
     items,
@@ -22,8 +23,7 @@ const Sample: React.FC<SampleProps> = props => {
     inputText,
     changePullDown,
     insertItem,
-    deleteItem,
-    dataFetch
+    deleteItem
   } = props;
   const viewItems: object = items.map((x, i) => <p key={i}>{x}</p>);
   const options: object = [
@@ -37,17 +37,17 @@ const Sample: React.FC<SampleProps> = props => {
       </option>
     ))
   );
-  // 読み込み中 or 初回時(null)に起動
-  if (!isFetch) {
-    dataFetch();
-    return <div>読み込み中・・・</div>;
-  }
+  // TODO プログレスバーに変更
+  if (isFetch) return <div>読み込み中・・・</div>;
   return (
     <div className="Sample">
       <h1>React + Redux + Saga + FireBase + TypeScriptのサンプル</h1>
       <div className="viewArea">{viewItems}</div>
       <div className="deleteArea">
-        <select onChange={e => changePullDown(e.target.value)}>
+        <select
+          onChange={e => changePullDown(e.target.value)}
+          defaultValue={""}
+        >
           {options}
         </select>
         <button type="button" onClick={() => deleteItem(deleteItemValue)}>
@@ -68,4 +68,9 @@ const Sample: React.FC<SampleProps> = props => {
   );
 };
 
-export default Sample;
+// LifecycleMethodを使用する場合のサンプル
+export const Sample = lifecycleHook<SampleProps>(Component, {
+  didMount: (props: SampleProps) => {
+    props.dataFetch();
+  }
+});

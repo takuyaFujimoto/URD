@@ -1,3 +1,3 @@
 # URD
-## 公開URL
-https://urd-app-pc.web.app/
+
+https://urd-app-pc-v1.firebaseapp.com/

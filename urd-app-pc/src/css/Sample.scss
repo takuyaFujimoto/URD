@@ -1,5 +1,151 @@
+@import "./reset.scss";
 @import "./common.scss";
 
 h1 {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: $charcoal;
+  font-size: $middleFont;
+  transition: all 0.5s ease;
+}
+
+a:hover {
+  color: $silk;
+}
+
+ul {
+  padding: 0px;
+  position: relative;
+}
+
+li {
+  border-left: solid 6px $palegold;
+  color: $palegold;
+  background: $paper;
+  font-size: $middleFont;
+  margin-bottom: 3px;
+  line-height: 1.5;
+  padding: 10px;
+  list-style-type: none;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  color: $palegold;
+  background: $paper;
+  font-size: $smallFont;
+  transition: all 0.5s ease;
+  outline: none;
+}
+
+button:hover {
+  color: #fff;
+  background: $palegold;
+}
+
+input {
+  width: 250px;
+  height: 30px;
+  padding-left: 10px;
+  margin-right: -1px;
+}
+
+input:focus {
+  outline: 0;
+}
+
+//継承クラス i-で統一
+.i-contentBox {
+  min-width: 400px;
+  min-height: 400px;
+  margin-right: 20px;
+  border: double 6px $charcoal;
+}
+
+.Sample {
+  margin-top: 30px;
+}
+
+.contentArea {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.contentArea>div {
+  @extend .i-contentBox;
+}
+
+.contentArea>div:last-of-type {
+  margin-right: 0;
+}
+
+.actionArea,
+.viewArea {
+  padding: 10px;
+}
+
+.add {
+  margin: 20px 0;
+}
+
+.delete {
+  display: flex;
+}
+
+.delete>button {
+  margin-left: -1px;
+}
+
+.deleteMenu {
+  overflow: hidden;
+  width: 250px;
+  height: 30px;
+  text-align: center;
+}
+
+.deleteMenu select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+}
+
+.deleteMenu.innerLayout {
+  position: relative;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+}
+
+.deleteMenu.innerLayout::before {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid $palegold;
+  pointer-events: none;
+}
+
+.deleteMenu.innerLayout select {
+  padding: 5px 38px 8px 10px;
+  color: $charcoal;
 }

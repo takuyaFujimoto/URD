@@ -7,7 +7,6 @@ import { createBrowserHistory } from "history";
 import { configureStore as createStore } from "./store/ConfigureStore";
 import App from "./components/App";
 import Sample from "./containers/sample/Sample";
-import "./css/index.scss";
 import * as serviceWorker from "./serviceWorker";
 
 const history = createBrowserHistory();

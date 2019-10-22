@@ -1,2 +1,3 @@
 # URD
-勤怠管理システム
+## 公開URL
+https://urd-app-pc.web.app/

@@ -47,6 +47,7 @@ const Component: React.FC<SampleProps> = props => {
           <a
             href="https://console.firebase.google.com/u/1/project/urd-app-pc-v1/overview"
             target="_blank"
+            rel="noreferrer noopener"
           >
             ▶︎ データ確認用 firebase console
           </a>

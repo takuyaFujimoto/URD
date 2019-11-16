@@ -4,7 +4,7 @@ import {
   COLLECTION_NAME_TEST,
   DOCUMENT_SAMPLE
 } from "../../constants/DataBaseNames";
-import db from "../../middleware/firebase";
+import { db } from "../../middleware/firebase";
 
 function saveItems(newItems: string[]) {
   db.collection(COLLECTION_NAME_TEST)

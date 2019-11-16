@@ -1,0 +1,101 @@
+@import "./reset.scss";
+@import "./common.scss";
+
+/* コンポネート名でラップすること */
+.Login {
+  position: relative;
+  height: 100vh;
+
+  /* Form Layout */
+  .itemWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    padding: 0 1em;
+    min-width: 400px;
+    border: double 6px $charcoal;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 30px 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      height: 30px;
+      width: 30px;
+      background: $charcoal;
+    }
+
+    label>svg {
+      position: relative;
+      top: 7px;
+      left: 8px;
+    }
+
+    label>svg>path {
+      color: $palegold;
+    }
+
+    input {
+      min-width: 340px;
+      min-height: 30px;
+      padding-left: 10px;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .buttonWrapper {
+    button {
+      cursor: pointer;
+      height: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      // transition: background 0.3s ease-in-out;
+      width: 100%;
+      color: $palegold;
+      background: $paper;
+      font-size: $middleFont;
+      transition: all 0.5s ease;
+      outline: none;
+
+      &:hover {
+        color: #fff;
+        background: $palegold;
+      }
+    }
+
+  }
+
+  .formFooter {
+    font-size: 1em;
+    padding: 30px 0;
+    // text-align: center;
+  }
+
+  .formFooter>li {
+    margin-top: 10px;
+    color: $charcoal;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  .formFooter>li:hover {
+    color: $silk;
+  }
+
+}

@@ -27,8 +27,7 @@ function* run(action: ReturnType<typeof loginActions.handleLoginRequest>) {
     const result: signInResult = yield call(checkSignIn, id, password);
     if (result.flg) {
       Cookies.set(UID, `${result.uid}`, { expires: VALID_PERIOD });
-      window.location.href = "http://localhost:3000/";
-      yield put(loginActions.handleLoginSuccess());
+      yield put(loginActions.handleLoginSuccess(result.flg));
     } else {
       yield put(loginActions.handleLoginError(result.errorCd));
     }

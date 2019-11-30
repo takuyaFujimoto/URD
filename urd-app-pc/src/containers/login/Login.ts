@@ -9,6 +9,7 @@ function mapStatetoProps(store: Store) {
     loginId: store.login.loginId,
     password: store.login.password,
     isFetch: store.login.isFetch,
+    loginFlg: store.login.loginFlg,
     errorCd: store.login.errorCd
   };
 }

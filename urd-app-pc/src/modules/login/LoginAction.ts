@@ -20,8 +20,9 @@ const handleLoginError = (errorCd: string) => ({
   payload: errorCd
 });
 
-const handleLoginSuccess = () => ({
+const handleLoginSuccess = (loginFlg: boolean) => ({
   type: ActionTypes.LOGIN_HANDLE_LOGIN_SUCCESS,
+  payload: loginFlg
 });
 
 export type inputLoginId = ReturnType<typeof inputLoginId>;

@@ -5,7 +5,6 @@ export type LoginState = {
   loginId: string;
   password: string;
   isFetch: boolean;
-  userInfo: { [key: string]: string };
   errorCd: string;
 };
 
@@ -13,7 +12,6 @@ const initialState: LoginState = {
   loginId: "",
   password: "",
   isFetch: false,
-  userInfo: {},
   errorCd: ""
 };
 
@@ -58,7 +56,6 @@ export function loginReducer(
     case ActionTypes.LOGIN_HANDLE_LOGIN_SUCCESS: {
       return {
         ...state,
-        userInfo: action.payload,
         isFetch: false,
         errorCd: "",
         loginId: "",

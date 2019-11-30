@@ -5,7 +5,7 @@ import { ConnectedRouter } from "connected-react-router";
 import { Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
 import { configureStore as createStore } from "./store/ConfigureStore";
-import App from "./components/App";
+import App from "./containers/app/App";
 import Login from "./containers/login/Login";
 import Auth from "./components/common/Auth";
 import Sample from "./containers/sample/Sample";

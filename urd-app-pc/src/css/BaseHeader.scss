@@ -1,0 +1,8 @@
+@import "./reset.scss";
+@import "./common.scss";
+
+/* コンポネート名でラップすること */
+.BaseHeader {
+  height: 45px;
+  background-color: $charcoal;
+}

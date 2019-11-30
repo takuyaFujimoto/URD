@@ -2,15 +2,14 @@ import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 import { loginActions } from "../../modules/login/LoginAction";
 import { Login as component } from "../../components/login/Login";
-import { AppState } from "../../store/ConfigureStore";
+import { Store } from "../../modules/index";
 
-function mapStatetoProps(appState: AppState) {
+function mapStatetoProps(store: Store) {
   return {
-    loginId: appState.login.loginId,
-    password: appState.login.password,
-    isFetch: appState.login.isFetch,
-    userInfo: appState.login.userInfo,
-    errorCd: appState.login.errorCd
+    loginId: store.login.loginId,
+    password: store.login.password,
+    isFetch: store.login.isFetch,
+    errorCd: store.login.errorCd
   };
 }
 

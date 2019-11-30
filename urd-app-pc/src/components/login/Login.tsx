@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
-import { LOGIN_FLG } from "../../constants/Login";
+import { UID } from "../../constants/Login";
 import { ERROR_CODE } from "../../constants/ErrorCode";
 import Loding from "../../components/common/Loding";
 import "../../css/Login.scss";
@@ -11,7 +11,7 @@ type LoginProps = {
   loginId: string;
   password: string;
   isFetch: boolean;
-  userInfo: object;
+  loginFlg: boolean;
   errorCd: string | null;
   inputLoginId: (x: string) => void;
   inputLoginPassword: (x: string) => void;
@@ -26,12 +26,8 @@ export const Login: React.FC<LoginProps> = props => {
     inputLoginId,
     handleLogin,
     errorCd,
-    isFetch,
-    userInfo
+    isFetch
   } = props;
-  if (!!Cookies.get(LOGIN_FLG) && Object.keys(userInfo).length !== 0)
-    return <Redirect to={"/"} />;
-  // if (!isFetch) return <Loding />;
   return (
     <div className="Login">
       {isFetch ? <Loding /> : null}

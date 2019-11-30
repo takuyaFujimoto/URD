@@ -4,7 +4,7 @@ import {
   COLLECTION_NAME_TEST,
   DOCUMENT_SAMPLE
 } from "../../constants/DataBaseNames";
-import db from "../../middleware/firebase";
+import { db } from "../../middleware/firebase";
 
 // TODO MODEL層作った方がよいかも
 function saveItems(newItems: string[]) {

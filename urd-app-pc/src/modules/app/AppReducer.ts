@@ -2,7 +2,7 @@ import * as ActionTypes from "../../constants/ActionTypes";
 import { appActions } from "./AppAction";
 
 export type AppState = {
-  userInfo: { [key: string]: string } | {};
+  userInfo: { [key: string]: string };
   isFetch: boolean;
   errorCode: string;
 };

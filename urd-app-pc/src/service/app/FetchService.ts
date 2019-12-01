@@ -34,7 +34,7 @@ function getUserInfo() {
 
 function* run() {
   try {
-    const userInfo: userInfoType | {} = yield call(getUserInfo);
+    const userInfo: userInfoType = yield call(getUserInfo);
     yield put(appActions.fetchSuccess(userInfo));
   } catch (e) {
     console.log(e);

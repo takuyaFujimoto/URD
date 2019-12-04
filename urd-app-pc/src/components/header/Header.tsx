@@ -2,58 +2,46 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { lifecycleHook } from "../common/LifecycleHook";
 import Loding from "../../components/common/Loding";
+import RightNavi from "../../containers/sideNavi/rightNavi/RightNavi";
+import { ACCOUNT, MESSAGE, HELP } from "../../constants/SideNavi";
 import "../../css/Header.scss";
 
 type HeaderProps = {
   isFetch: boolean;
   imgPath: { [key: string]: string };
-  rightContentsInfo: { name: string; isOpen: boolean };
-  rightContentsOpen: (x: string) => void;
-  rightContentsClose: () => void;
+  rightNaviOpen: (x: string) => void;
   dataFetch: () => void;
 };
 
 const Component: React.FC<HeaderProps> = props => {
-  const {
-    isFetch,
-    imgPath,
-    rightContentsInfo,
-    rightContentsOpen,
-    rightContentsClose
-  } = props;
-  const rightContentsItems: string = rightContentsInfo.isOpen
-    ? "rightContentsDetail open"
-    : "rightContentsDetail";
+  const { isFetch, imgPath, rightNaviOpen } = props;
   return (
     <div className="Header">
       {isFetch ? <Loding /> : null}
       <div className="contentsWrapper">
-        <div className="leftContents"></div>
-        <div className="rightContents">
-          <div className={`${rightContentsItems}`}>
-            <div className="rightContentsDetailHeader">
-              <h2>{`${rightContentsInfo.name}`}</h2>
-              <div className="closeButton">
-                <span onClick={() => rightContentsClose()}>×</span>
-              </div>
-            </div>
+        <div className="leftContents">
+          <div className="arrow right">
+            <span className="inner"></span>
           </div>
+        </div>
+        <div className="rightContents">
+          <RightNavi />
           <div className="rightContentsItems">
             <FontAwesomeIcon
               icon="comments"
-              onClick={() => rightContentsOpen("Message")}
+              onClick={() => rightNaviOpen(`${MESSAGE}`)}
             />
           </div>
           <div className="rightContentsItems">
             <FontAwesomeIcon
               icon="question-circle"
-              onClick={() => rightContentsOpen("Help")}
+              onClick={() => rightNaviOpen(`${HELP}`)}
             />
           </div>
           <div className="rightContentsItems">
             {imgPath["small"] ? (
               <img
-                onClick={() => rightContentsOpen("Account")}
+                onClick={() => rightNaviOpen(`${ACCOUNT}`)}
                 className="profile"
                 src={`${imgPath["small"]}`}
                 alt="profile"

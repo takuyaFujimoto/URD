@@ -1,0 +1,64 @@
+@import "../reset.scss";
+@import "../common.scss";
+
+/* コンポネート名でラップすること */
+
+.RightNavi {
+  height: 100vh;
+  width: 250px;
+  background: $paper;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.5s ease;
+  right: -250px;
+
+  .naviHeader {
+    padding: 15px 10px;
+    border-bottom: 2px solid $charcoal;
+    display: flex;
+    color: $charcoal;
+
+    h2 {
+      font-size: $middleFont;
+    }
+
+    .closeButton {
+      margin-left: auto;
+    }
+
+    .closeButton>span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      margin: 0 20px 0 7px;
+      padding: 0;
+      width: 4px;
+      height: 20px;
+      background: #000;
+      transform: rotate(45deg);
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        width: 20px;
+        height: 4px;
+        margin-top: -2px;
+        background: #000;
+      }
+    }
+  }
+}
+
+.RightNavi.open {
+  right: 0px;
+}
+
+// TODO 削除
+.hoge {
+  color: #000;
+  width: 90%;
+  margin: 0 auto;
+}

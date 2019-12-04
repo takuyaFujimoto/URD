@@ -1,22 +1,21 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
 import { headerActions } from "../../modules/header/HeaderAction";
+import { rightNaviActions } from "../../modules/sideNavi/rightNavi/RightNaviAction";
 import { Header as component } from "../../components/header/Header";
 import { Store } from "../../modules/index";
 
 function mapStatetoProps(store: Store) {
   return {
     isFetch: store.header.isFetch,
-    imgPath: store.header.imgPath,
-    rightContentsInfo: store.header.rightContentsInfo
+    imgPath: store.header.imgPath
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
   return {
-    rightContentsOpen: (x: string) =>
-      dispatch(headerActions.rightContentsOpen(x)),
-    rightContentsClose: () => dispatch(headerActions.rightContentsClose()),
+    rightNaviOpen: (name: string) =>
+      dispatch(rightNaviActions.rightNaviOpen(name)),
     dataFetch: () => dispatch(headerActions.fetchRequest())
   };
 }

@@ -14,49 +14,71 @@
   .leftContents {
     width: 50%;
 
+    .arrow {
+      position: relative;
+      display: inline-block;
+      width: 55px;
+      height: 55px;
+      cursor: pointer;
+    }
+
+    .arrow .inner,
+    .arrow .inner::before,
+    .arrow .inner::after {
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: $paper;
+      transition-duration: .15s;
+      transition-property: width, transform;
+      transition-timing-function: ease-in-out;
+      content: '';
+    }
+
+    .arrow .inner {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    .arrow .inner::before {
+      top: -8px;
+    }
+
+    .arrow .inner::after {
+      top: 8px;
+    }
+
+    .arrow:hover .inner::before,
+    .arrow:hover .inner::after {
+      width: 16px;
+      will-change: width, transform;
+    }
+
+    .arrow.left:hover .inner::before {
+      transform: translateY(13px) translateX(-4px) rotate(45deg);
+    }
+
+    .arrow.left:hover .inner::after {
+      transform: translateY(-13px) translateX(-4px) rotate(-45deg);
+    }
+
+    .arrow.right:hover .inner::before {
+      transform: translateY(13px) translateX(7px) rotate(-45deg);
+    }
+
+    .arrow.right:hover .inner::after {
+      transform: translateY(-13px) translateX(7px) rotate(45deg);
+    }
+
   }
 
   .rightContents {
     width: 50%;
     display: flex;
     justify-content: flex-end;
-
-    .rightContentsDetail {
-      height: 100vh;
-      min-width: 200px;
-      background: $paper;
-      position: absolute;
-      z-index: 1;
-      transition: all 0.5s ease;
-      right: -200px;
-
-      .rightContentsDetailHeader {
-        padding: 15px 10px;
-        border-bottom: 2px solid $charcoal;
-        display: flex;
-        color: $charcoal;
-
-        h2 {
-          font-size: $middleFont;
-        }
-
-        .closeButton {
-          font-size: 30px;
-          color: $charcoal;
-          margin-left: auto;
-        }
-
-        .closeButton>span {
-          cursor: pointer;
-          display: block;
-          margin-top: -7px;
-        }
-      }
-    }
-
-    .rightContentsDetail.open {
-      right: 0px;
-    }
 
     .rightContentsItems {
       margin-right: 20px;

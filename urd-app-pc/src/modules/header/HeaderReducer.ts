@@ -4,7 +4,6 @@ import { headerActions } from "./HeaderAction";
 export type HeaderState = {
   isFetch: boolean;
   imgPath: { [key: string]: string };
-  rightContentsInfo: { name: string; isOpen: boolean };
 };
 
 const initialState: HeaderState = {
@@ -12,19 +11,13 @@ const initialState: HeaderState = {
   imgPath: {
     small: "",
     large: ""
-  },
-  rightContentsInfo: {
-    name: "",
-    isOpen: false
   }
 };
 
 type Actions =
   | ReturnType<typeof headerActions.fetchRequest>
   | ReturnType<typeof headerActions.fetchError>
-  | ReturnType<typeof headerActions.fetchSuccess>
-  | ReturnType<typeof headerActions.rightContentsOpen>
-  | ReturnType<typeof headerActions.rightContentsClose>;
+  | ReturnType<typeof headerActions.fetchSuccess>;
 
 export function headerReducer(
   state = initialState,
@@ -50,20 +43,6 @@ export function headerReducer(
         ...state,
         imgPath: { ...action.payload },
         isFetch: false
-      };
-    }
-
-    case ActionTypes.HEADER_RIGHT_CONTENTS_OPEN: {
-      return {
-        ...state,
-        rightContentsInfo: { name: action.payload, isOpen: true }
-      };
-    }
-
-    case ActionTypes.HEADER_RIGHT_CONTENTS_CLOSE: {
-      return {
-        ...state,
-        rightContentsInfo: { name: "", isOpen: false }
       };
     }
     default: {

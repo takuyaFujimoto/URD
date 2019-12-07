@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { lifecycleHook } from "../common/LifecycleHook";
 import Header from "../../containers/header/Header";
+import LeftNavi from "../../containers/sideNavi/leftNavi/LeftNavi";
 import Loding from "../../components/common/Loding";
 import { ERROR_CODE } from "../../constants/ErrorCode";
 import "../../css/App.scss";
@@ -20,7 +20,9 @@ const Component: React.FC<AppProps> = props => {
     <div className="App">
       {isFetch ? <Loding /> : null}
       <Header />
-      <Link to="/sample">SAMPLE</Link>
+      <div className="contentsArea">
+        <LeftNavi />
+      </div>
     </div>
   );
 };

@@ -10,17 +10,19 @@ import Login from "./containers/login/Login";
 import Auth from "./components/common/Auth";
 import Sample from "./containers/sample/Sample";
 import * as serviceWorker from "./serviceWorker";
+import ICON from "./constants/Icon";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faKey,
-  faEnvelope,
-  faQuestionCircle,
-  faComments
-} from "@fortawesome/free-solid-svg-icons";
-
 const history = createBrowserHistory();
 const store = createStore(history);
-library.add(faKey, faEnvelope, faQuestionCircle, faComments);
+library.add(
+  ICON.faKey,
+  ICON.faEnvelope,
+  ICON.faQuestionCircle,
+  ICON.faComments,
+  ICON.faTerminal,
+  ICON.faBuilding,
+  ICON.fab
+);
 
 ReactDOM.render(
   <Provider store={store}>

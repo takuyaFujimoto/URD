@@ -6,6 +6,10 @@ import {
   RightNaviState,
   rightNaviReducer
 } from "./sideNavi/rightNavi/RightNaviReducer";
+import {
+  LeftNaviState,
+  leftNaviReducer
+} from "./sideNavi/leftNavi/LeftNaviReducer";
 
 export type Store = {
   router: any;
@@ -14,6 +18,7 @@ export type Store = {
   login: LoginState;
   header: HeaderState;
   rightNavi: RightNaviState;
+  leftNavi: LeftNaviState;
 };
 
 export const reducer = {
@@ -21,5 +26,6 @@ export const reducer = {
   app: appReducer,
   login: loginReducer,
   header: headerReducer,
-  rightNavi: rightNaviReducer
+  rightNavi: rightNaviReducer,
+  leftNavi: leftNaviReducer
 };

@@ -1,0 +1,53 @@
+@import "../reset.scss";
+@import "../common.scss";
+
+/* コンポネート名でラップすること */
+
+.LeftNavi {
+  height: 100vh;
+  width: 50px;
+  background: $charcoal;
+  transition: all 0.5s ease;
+
+  .linkList {
+    overflow-x: hidden;
+    border-top: solid 1px $paper;
+  }
+
+  .linkItem {
+    margin: 25px 0;
+  }
+
+  .linkItem>a {
+    color: $paper;
+    display: flex;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    word-break: keep-all;
+
+    &:hover {
+      color: $palegold;
+    }
+  }
+
+  .linkItem>a>svg {
+    width: 50px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+    top: -5px;
+
+    &:hover>path {
+      color: $palegold;
+    }
+  }
+
+  .linkItem>a>svg>path {
+    color: $paper;
+    transition: all 0.5s ease;
+  }
+}
+
+.LeftNavi.open {
+  width: 250px;
+}

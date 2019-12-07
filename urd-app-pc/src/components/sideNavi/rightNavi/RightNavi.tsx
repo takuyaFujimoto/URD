@@ -2,13 +2,13 @@ import React from "react";
 import { ACCOUNT, MESSAGE, HELP } from "../../../constants/SideNavi";
 import "../../../css/sideNavi/RightNavi.scss";
 
-type HeaderProps = {
+type RightNaviProps = {
   contentName: string;
   isOpen: boolean;
   rightNaviClose: () => void;
 };
 
-export const RightNavi: React.FC<HeaderProps> = props => {
+export const RightNavi: React.FC<RightNaviProps> = props => {
   const { contentName, isOpen, rightNaviClose } = props;
   const rightNaviIsOpen: string = isOpen ? "RightNavi open" : "RightNavi";
   const content = (x: string) => {

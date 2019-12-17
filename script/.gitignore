@@ -14,3 +14,4 @@
 # misc
 .DS_Store
 Pipfile.lock
+/src/createAttendance/serviceAccountKey.json

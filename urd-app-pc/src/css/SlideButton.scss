@@ -1,0 +1,91 @@
+@import "./reset.scss";
+@import "./common.scss";
+
+/* コンポネート名でラップすること */
+.SlideButton {
+
+  .buttonIcon {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: -5px;
+    margin: 0 15px;
+  }
+
+  .selectWord {
+    position: relative;
+    top: -8px;
+    margin: 0 15px;
+  }
+
+  .switchLabel {
+    cursor: pointer;
+    width: 60px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .switchContent {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    border-radius: 30px;
+    height: 31px;
+    overflow: hidden;
+  }
+
+  .switchContent:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    top: 0;
+    left: 0;
+    border: 1.5px solid #E5E5EA;
+    border-radius: 30px;
+    background-color: $palegold;
+  }
+
+  .switchContent:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    border-radius: 30px;
+    transition: all ease 0.5s;
+  }
+
+  .switchInput {
+    display: none;
+  }
+
+  .switchCircle {
+    display: block;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+    box-shadow: 0 2px 6px $paper;
+    width: 27px;
+    height: 27px;
+    border-radius: 20px;
+    background-color: $charcoal;
+    transition: all ease 0.5s;
+  }
+
+  .switchInput:checked~.switchCircle {
+    left: 31px;
+  }
+
+  .switchInput:checked~.switchContent:after {
+    background-color: $palegold;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+
+}

@@ -4,7 +4,9 @@ import {
   faQuestionCircle,
   faComments,
   faBuilding,
-  faTerminal
+  faTerminal,
+  faTable,
+  faCalendarAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
@@ -15,5 +17,7 @@ export default {
   faComments,
   faBuilding,
   faTerminal,
+  faTable,
+  faCalendarAlt,
   fab
 };

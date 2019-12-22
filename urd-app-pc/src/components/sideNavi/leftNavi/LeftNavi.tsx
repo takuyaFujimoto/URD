@@ -5,7 +5,8 @@ import {
   TRELLO_LINK,
   FIREBASE_CONSOLE_LINK,
   GITHUB_LINK,
-  PORTAL_LINK
+  PORTAL_LINK,
+  SLACK_LINK
 } from "../../../constants/SideNavi";
 import "../../../css/sideNavi/LeftNavi.scss";
 
@@ -48,10 +49,10 @@ export const LeftNavi: React.FC<LeftNaviProps> = props => {
           </a>
         </li>
         <li className="linkItem">
-          <Link to="/sample">
+          <a href={`${SLACK_LINK}`} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "slack"]} />
             スラック
-          </Link>
+          </a>
         </li>
         <li className="linkItem">
           <Link to="/sample">

@@ -21,6 +21,8 @@ library.add(
   ICON.faComments,
   ICON.faTerminal,
   ICON.faBuilding,
+  ICON.faTable,
+  ICON.faCalendarAlt,
   ICON.fab
 );
 

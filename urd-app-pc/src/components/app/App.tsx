@@ -3,6 +3,7 @@ import { lifecycleHook } from "../common/LifecycleHook";
 import Header from "../../containers/header/Header";
 import LeftNavi from "../../containers/sideNavi/leftNavi/LeftNavi";
 import Loding from "../../components/common/Loding";
+import Attendance from "../../containers/attendance/Attendance";
 import { ERROR_CODE } from "../../constants/ErrorCode";
 import "../../css/App.scss";
 
@@ -22,6 +23,7 @@ const Component: React.FC<AppProps> = props => {
       <Header />
       <div className="contentsArea">
         <LeftNavi />
+        <Attendance />
       </div>
     </div>
   );

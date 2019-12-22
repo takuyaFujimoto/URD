@@ -10,6 +10,8 @@ export const TRELLO_LINK: "https://trello.com/tszdemiurge/home" =
 export const FIREBASE_CONSOLE_LINK: "https://console.firebase.google.com" =
   "https://console.firebase.google.com";
 
+export const SLACK_LINK: "https://tszhq.slack.com" = "https://tszhq.slack.com";
+
 export const GITHUB_LINK: "https://github.com/takuyaFujimoto/URD/tree/develop" =
   "https://github.com/takuyaFujimoto/URD/tree/develop";
 

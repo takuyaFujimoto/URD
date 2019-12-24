@@ -30,7 +30,7 @@ def get_holidays(year, month):
 # 登録アイテムの作成
 def create_items(year, month, holidays):
   # 曜日
-  week = ["Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.", "Sun."]
+  week = ["月", "火", "水", "木", "金", "土", "日"]
   week_num, end_of_month = calendar.monthrange(year, month)
 
   result = []
@@ -41,9 +41,10 @@ def create_items(year, month, holidays):
       day: {
         "break_time": "01:00",
         "day_of_the_week": week[week_num],
-        "from": "09:00",
-        "to": "18:00",
-        "is_holiday": is_holiday
+        "from": "00:00",
+        "to": "00:00",
+        "is_holiday": is_holiday,
+        "comment": "-"
       }
     })
     week_num = week_num + 1 if week_num < 6 else 0

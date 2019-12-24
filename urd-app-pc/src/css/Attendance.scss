@@ -1,8 +1,12 @@
 @import "./reset.scss";
 @import "./common.scss";
 
-.App {
-  .contentsArea {
-    display: flex;
-  }
+.Attendance {
+  margin: 1% auto;
+  width: 98%;
+  height: 100vh;
+  border: 1px solid $charcoal;
+  box-shadow: 1px 2px 3px $charcoal;
+  border-radius: 20px;
+  background: $paper;
 }

@@ -18,7 +18,6 @@ const SlideButton: React.FC<SlideButtonProps> = props => {
         <span className="switchCircle"></span>
       </label>
       <FontAwesomeIcon icon={props.rightIcon} className="buttonIcon" />
-      {}
     </div>
   );
 };

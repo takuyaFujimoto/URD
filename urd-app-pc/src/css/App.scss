@@ -4,5 +4,9 @@
 .App {
   .contentsArea {
     display: flex;
+
+    .attendanceWrap {
+      width: 100%
+    }
   }
 }

@@ -11,8 +11,11 @@ const fetchError = (x: string) => ({
 
 const fetchSuccess = (x: {
   [key: string]:
-    | { [key: string]: string }
-    | { [key: string]: { [key: string]: string } }[]
+    | { [key: string]: string | boolean }
+    | { [key: string]: string | boolean }[]
+    | { [key: string]: { [key: string]: string | boolean } }[]
+    | { [key: string]: { [key: string]: string | boolean }[] }[]
+    | string[]
     | string;
 }) => ({
   type: ActionTypes.ATTENDANCE_FETCH_SUCCESS,

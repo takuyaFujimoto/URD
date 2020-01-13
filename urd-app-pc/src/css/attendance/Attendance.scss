@@ -1,0 +1,65 @@
+@import "../reset.scss";
+@import "../common.scss";
+
+.Attendance {
+  margin: 1% auto;
+  width: 98%;
+  height: 100vh;
+  border: 1px solid $charcoal;
+  box-shadow: 1px 2px 3px $charcoal;
+  border-radius: 20px;
+  background: $paper;
+
+  .headContent {
+    display: flex;
+    padding: 30px 0 0 50px;
+
+    h1 {
+      font-size: $largeFont;
+    }
+
+    .leftContents {
+      margin-right: auto;
+      display: flex;
+    }
+
+    .rightContents {
+      margin-left: auto;
+    }
+
+    .arrow {
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 2px;
+        content: "";
+      }
+    }
+
+    .arrowLeft {
+      margin-right: 35px;
+
+      &::before {
+        width: 20px;
+        height: 20px;
+        border-top: 5px solid $charcoal;
+        border-right: 5px solid $charcoal;
+        transform: rotate(225deg);
+      }
+    }
+
+    .arrowRight {
+      margin-left: 18px;
+
+      &::before {
+        width: 20px;
+        height: 20px;
+        border-top: 5px solid $charcoal;
+        border-right: 5px solid $charcoal;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

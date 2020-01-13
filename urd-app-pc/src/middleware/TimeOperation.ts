@@ -62,7 +62,7 @@ export class TimeOperation {
         Math.abs(prevM) < 10 ? `0${Math.abs(prevM)}` : String(Math.abs(prevM));
       return { year: String(Number(y) - 1), month: x };
     }
-    const prevY: number = Math.floor(n / 12);
+    const prevY: number = Math.trunc(n / 12);
     const prevM: number = n % 12;
     if (prevM === 0) return { year: String(Number(y) - prevY), month: m };
     const x: number = Number(m) - prevM;
@@ -90,7 +90,7 @@ export class TimeOperation {
       const x: string = xx < 10 ? `0${xx}` : String(xx);
       return { year: String(Number(y) + 1), month: x };
     }
-    const nextY: number = Math.floor(n / 12);
+    const nextY: number = Math.trunc(n / 12);
     const nextM: number = n % 12;
     if (nextM === 0) return { year: String(Number(y) + nextY), month: m };
     const x: number = Number(m) + nextM;
@@ -102,5 +102,27 @@ export class TimeOperation {
     const xx: number = (Number(m) + x) % 12;
     const xxx: string = xx < 10 ? `0${xx}` : String(xx);
     return { year: String(Number(y) + nextY + 1), month: xxx };
+  }
+
+  // 文字列のHH:mmの差分算出
+  // 例 09:00 - 18:30
+  calcTime(from: string, to: string, breakTime: string = "00:00") {
+    const fromNum: number =
+      Number(from.split(":")[0]) * 60 + Number(from.split(":")[1]);
+    const toNum: number =
+      Number(to.split(":")[0]) * 60 + Number(to.split(":")[1]);
+    const breakTimeNum: number =
+      Number(breakTime.split(":")[0]) * 60 + Number(breakTime.split(":")[1]);
+    const totalNum: number = toNum - fromNum - breakTimeNum; // 48?
+    const hh: string =
+      Math.trunc(totalNum / 60) < 10
+        ? `0${Math.abs(Math.trunc(totalNum / 60))}` // これが1
+        : String(Math.trunc(totalNum / 60));
+    const mm: string =
+      Math.abs(totalNum) - Number(hh) * 60 < 10
+        ? `0${Math.abs(Math.abs(totalNum) - Number(hh) * 60)}`
+        : String(Math.abs(totalNum) - Number(hh) * 60);
+    const result: string = totalNum < 0 ? `-${hh}:${mm}` : `${hh}:${mm}`;
+    return result;
   }
 }

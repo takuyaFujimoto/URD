@@ -2,23 +2,25 @@ import * as ActionTypes from "../../constants/ActionTypes";
 import { attendanceActions } from "./AttendanceAction";
 
 export type AttendanceState = {
-  cache: { [key: string]: { [key: string]: string } }[];
-  current: { [key: string]: string };
-  prev: { [key: string]: string };
-  next: { [key: string]: string };
+  cache: { [key: string]: { [key: string]: string | boolean }[] }[];
+  current: { [key: string]: string | boolean }[];
+  prev: { [key: string]: string | boolean }[];
+  next: { [key: string]: string | boolean }[];
   year: string;
   month: string;
+  tableHeaderName: { [key: string]: string }[];
   isFetch: boolean;
   errorCode: string;
 };
 
 const initialState: AttendanceState = {
   cache: [],
-  current: {},
-  prev: {},
-  next: {},
+  current: [],
+  prev: [],
+  next: [],
   year: "",
   month: "",
+  tableHeaderName: [],
   isFetch: false,
   errorCode: ""
 };

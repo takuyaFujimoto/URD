@@ -10,7 +10,10 @@ function mapStatetoProps(store: Store) {
     prev: store.attendance.prev,
     next: store.attendance.next,
     errorCode: store.attendance.errorCode,
-    isFetch: store.attendance.isFetch
+    isFetch: store.attendance.isFetch,
+    year: store.attendance.year,
+    month: store.attendance.month,
+    tableHeaderName: store.attendance.tableHeaderName
   };
 }
 

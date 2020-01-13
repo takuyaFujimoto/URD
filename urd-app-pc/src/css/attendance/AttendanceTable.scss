@@ -1,0 +1,36 @@
+@import "../reset.scss";
+@import "../common.scss";
+
+.AttendanceTable {
+  table {
+    border-collapse: collapse;
+    margin: 50px auto 0 auto;
+    padding: 0;
+    width: 90%;
+    table-layout: fixed;
+  }
+
+  table tr {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    padding: .35em;
+  }
+
+  table th,
+  table td {
+    padding: 1em 10px 1em 1em;
+    border-right: 1px solid #bbb;
+  }
+
+  table td.isHolidy {
+    color: red;
+  }
+
+  table th {
+    font-size: .85em;
+  }
+
+  table thead tr {
+    background-color: #eee;
+  }
+}

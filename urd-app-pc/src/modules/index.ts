@@ -14,6 +14,10 @@ import {
   AttendanceState,
   attendanceReducer
 } from "./attendance/AttendanceReducer";
+import {
+  AttendanceTableState,
+  attendanceTableReducer
+} from "./attendance/AttendanceTableReducer";
 
 export type Store = {
   router: any;
@@ -24,6 +28,7 @@ export type Store = {
   rightNavi: RightNaviState;
   leftNavi: LeftNaviState;
   attendance: AttendanceState;
+  attendanceTable: AttendanceTableState;
 };
 
 export const reducer = {
@@ -33,5 +38,6 @@ export const reducer = {
   header: headerReducer,
   rightNavi: rightNaviReducer,
   leftNavi: leftNaviReducer,
-  attendance: attendanceReducer
+  attendance: attendanceReducer,
+  attendanceTable: attendanceTableReducer
 };

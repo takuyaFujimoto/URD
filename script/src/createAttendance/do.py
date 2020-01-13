@@ -36,7 +36,7 @@ def create_items(year, month, holidays):
   result = []
   for num in range(1, (end_of_month + 1)):
     day = str(num) if 10 <= num else "0" + str(num)
-    is_holiday = "true" if day in holidays else "false"
+    is_holiday = True if day in holidays else False
     result.append({
       day: {
         "break_time": "01:00",

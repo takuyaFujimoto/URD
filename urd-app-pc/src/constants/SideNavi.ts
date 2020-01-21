@@ -17,3 +17,6 @@ export const GITHUB_LINK: "https://github.com/takuyaFujimoto/URD/tree/develop" =
 
 export const PORTAL_LINK: "https://sites.google.com/a/i-vinci.co.jp/portal" =
   "https://sites.google.com/a/i-vinci.co.jp/portal";
+
+export const DRIVE_LINK: "https://drive.google.com/drive/u/1/folders/0Bw_Sp_vEspyKNzZmS2c1N2Z6RE0" =
+  "https://drive.google.com/drive/u/1/folders/0Bw_Sp_vEspyKNzZmS2c1N2Z6RE0";

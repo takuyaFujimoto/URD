@@ -6,7 +6,8 @@ import {
   FIREBASE_CONSOLE_LINK,
   GITHUB_LINK,
   PORTAL_LINK,
-  SLACK_LINK
+  SLACK_LINK,
+  DRIVE_LINK
 } from "../../../constants/SideNavi";
 import "../../../css/sideNavi/LeftNavi.scss";
 
@@ -55,10 +56,10 @@ export const LeftNavi: React.FC<LeftNaviProps> = props => {
           </a>
         </li>
         <li className="linkItem">
-          <Link to="/sample">
+          <a href={`${DRIVE_LINK}`} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={["fab", "google-drive"]} />
             チームドライブ
-          </Link>
+          </a>
         </li>
         <li className="linkItem">
           <Link to="/sample">

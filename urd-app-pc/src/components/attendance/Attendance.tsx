@@ -3,7 +3,6 @@ import { lifecycleHook } from "../common/LifecycleHook";
 import Loding from "../../components/common/Loding";
 import SlideButton from "../../components/common/SlideButton";
 import { ERROR_CODE } from "../../constants/ErrorCode";
-import { ATTENDANCE_TABLE_HEADER_NAME } from "../../constants/Attendance";
 import AttendanceTable from "../../containers/attendance/AttendanceTable";
 import "../../css/attendance/Attendance.scss";
 
@@ -17,31 +16,69 @@ export type AttendanceProps = {
   month: string;
   tableHeaderName: { [key: string]: string }[];
   dataFetch: () => void;
+  prevExecute: () => void;
+  nextExecute: () => void;
 };
 
 const Component: React.FC<AttendanceProps> = props => {
-  const { isFetch, errorCode, current, year, month, tableHeaderName } = props;
-  // TODO errorのデザイン考える
-  // if (errorCode) return <h1>{ERROR_CODE[errorCode]}</h1>;
+  const {
+    isFetch,
+    errorCode,
+    current,
+    prev,
+    next,
+    year,
+    month,
+    tableHeaderName,
+    prevExecute,
+    nextExecute
+  } = props;
+  const mainContent: () => JSX.Element = () => {
+    if (errorCode && errorCode === "E002") {
+      return (
+        <div className="noData">
+          <h2>{ERROR_CODE[errorCode]}</h2>
+        </div>
+      );
+    } else {
+      return (
+        <AttendanceTable
+          current={current}
+          year={year}
+          month={month}
+          tableHeaderName={tableHeaderName}
+        />
+      );
+    }
+  };
   return (
     <div className="Attendance">
       {isFetch ? <Loding /> : null}
       <div className="headContent">
         <div className="leftContents">
-          <span className="arrow arrowLeft"></span>
+          {prev.length !== 0 ? (
+            <span
+              className="arrow arrowLeft"
+              onClick={() => prevExecute()}
+            ></span>
+          ) : (
+            <span className="arrow arrowLeft invalid"></span>
+          )}
           <h1>{`${year}年${month}月`}</h1>
-          <span className="arrow arrowRight"></span>
+          {next.length !== 0 ? (
+            <span
+              className="arrow arrowRight"
+              onClick={() => nextExecute()}
+            ></span>
+          ) : (
+            <span className="arrow arrowRight invalid"></span>
+          )}
         </div>
         <div className="rightContents">
           <SlideButton leftIcon="table" rightIcon="calendar-alt" />
         </div>
       </div>
-      <AttendanceTable
-        current={current}
-        year={year}
-        month={month}
-        tableHeaderName={tableHeaderName}
-      />
+      {mainContent()}
     </div>
   );
 };

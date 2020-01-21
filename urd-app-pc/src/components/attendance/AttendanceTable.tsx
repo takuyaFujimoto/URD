@@ -1,5 +1,5 @@
 import React from "react";
-import { ERROR_CODE } from "../../constants/ErrorCode";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ATTENDANCE_TABLE_HEADER_NAME } from "../../constants/Attendance";
 import "../../css/attendance/AttendanceTable.scss";
 
@@ -12,50 +12,83 @@ type AttendanceTableProps = {
 
 export const AttendanceTable: React.FC<AttendanceTableProps> = props => {
   const { current, tableHeaderName } = props;
-  const getTableBodyValue = (
+  const createHead: () => JSX.Element = () => {
+    return (
+      <thead>
+        <tr>
+          {tableHeaderName.map((x, i) => (
+            <th scope="col" key={i}>
+              {x.value}
+            </th>
+          ))}
+        </tr>
+      </thead>
+    );
+  };
+  const checkHoliday: (
+    isHolidy: boolean,
+    dayOfTheWeek: string
+  ) => JSX.Element = (isHolidy: boolean, dayOfTheWeek: string) => {
+    if (isHolidy || dayOfTheWeek === "日")
+      return <span className="isHolidy">{`${dayOfTheWeek}`}</span>;
+    if (dayOfTheWeek === "土")
+      return <span className="isSaturday">{`${dayOfTheWeek}`}</span>;
+    return <span>{`${dayOfTheWeek}`}</span>;
+  };
+  const createSell: (
     obj: { [key: string]: string | boolean },
-    name: string
+    name: string,
+    index: number
+  ) => JSX.Element = (
+    obj: { [key: string]: string | boolean },
+    name: string,
+    index: number
   ) => {
     switch (name) {
       case ATTENDANCE_TABLE_HEADER_NAME.day.value:
-        return `${obj.day}(${obj.day_of_the_week})`;
+        return (
+          <td key={index}>
+            {`${obj.day}`}(
+            {checkHoliday(!!obj.is_holiday, String(obj.day_of_the_week))})
+          </td>
+        );
       case ATTENDANCE_TABLE_HEADER_NAME.from.value:
-        return `${obj.from}`;
+        return <td key={index}>{`${obj.from}`}</td>;
       case ATTENDANCE_TABLE_HEADER_NAME.to.value:
-        return `${obj.to}`;
+        return <td key={index}>{`${obj.to}`}</td>;
       case ATTENDANCE_TABLE_HEADER_NAME.break_time.value:
-        return `${obj.break_time}`;
+        return <td key={index}>{`${obj.break_time}`}</td>;
       case ATTENDANCE_TABLE_HEADER_NAME.total.value:
-        return `${obj.total}`;
+        return <td key={index}>{`${obj.total}`}</td>;
       case ATTENDANCE_TABLE_HEADER_NAME.comment.value:
-        return obj.comment === "-" ? "無" : "有";
+        return <td key={index}>{obj.comment === "-" ? "無" : "有"}</td>;
+      case ATTENDANCE_TABLE_HEADER_NAME.edit.value:
+        return (
+          <td key={index} className="editIcon">
+            <FontAwesomeIcon icon="pen-nib" onClick={() => alert("実装中")} />
+          </td>
+        );
       default:
-        return null;
+        return <td key={index}></td>;
     }
   };
-  // TODO errorのデザイン考える
-  // if (errorCode) return <h1>{ERROR_CODE[errorCode]}</h1>;
+  const createBody: () => JSX.Element = () => {
+    return (
+      <tbody>
+        {current.map((x, i) => (
+          <tr key={i}>
+            {tableHeaderName.map((xx, ii) => createSell(x, xx.value, ii))}
+          </tr>
+        ))}
+      </tbody>
+    );
+  };
+
   return (
     <div className="AttendanceTable">
       <table>
-        <thead>
-          <tr>
-            {tableHeaderName.map((x, i) => (
-              <th scope="col" key={i}>
-                {x.value}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {current.map((x, i) => (
-            <tr key={i}>
-              {tableHeaderName.map((xx, ii) => (
-                <td key={ii}>{getTableBodyValue(x, xx.value)}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
+        {createHead()}
+        {createBody()}
       </table>
     </div>
   );

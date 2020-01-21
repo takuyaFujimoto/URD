@@ -6,7 +6,8 @@ import {
   faBuilding,
   faTerminal,
   faTable,
-  faCalendarAlt
+  faCalendarAlt,
+  faPenNib
 } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
@@ -19,5 +20,6 @@ export default {
   faTerminal,
   faTable,
   faCalendarAlt,
+  faPenNib,
   fab
 };

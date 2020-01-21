@@ -80,6 +80,7 @@ function* run() {
       year,
       month
     );
+    if (current.length === 0) throw new Error("E002");
     current = calcTotal(timeOpration, current);
     const prevYM: { [key: string]: string } = timeOpration.prevYM(
       year,
@@ -123,8 +124,14 @@ function* run() {
       })
     );
   } catch (e) {
-    console.log(e);
-    yield put(attendanceActions.fetchError("E999"));
+    console.log(e.message);
+    yield put(
+      attendanceActions.fetchError({
+        errorCode: e.message || "E999",
+        year: "",
+        month: ""
+      })
+    );
   }
 }
 

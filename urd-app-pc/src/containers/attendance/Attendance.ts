@@ -19,7 +19,9 @@ function mapStatetoProps(store: Store) {
 
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
   return {
-    dataFetch: () => dispatch(attendanceActions.fetchRequest())
+    dataFetch: () => dispatch(attendanceActions.fetchRequest()),
+    prevExecute: () => dispatch(attendanceActions.changePrevRequest()),
+    nextExecute: () => dispatch(attendanceActions.changeNextRequest())
   };
 }
 

@@ -23,6 +23,7 @@ library.add(
   ICON.faBuilding,
   ICON.faTable,
   ICON.faCalendarAlt,
+  ICON.faPenNib,
   ICON.fab
 );
 

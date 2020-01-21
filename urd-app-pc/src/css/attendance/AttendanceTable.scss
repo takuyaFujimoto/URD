@@ -10,6 +10,10 @@
     table-layout: fixed;
   }
 
+  tbody {
+    text-align: center;
+  }
+
   table tr {
     background-color: #fff;
     border: 1px solid #bbb;
@@ -22,8 +26,26 @@
     border-right: 1px solid #bbb;
   }
 
-  table td.isHolidy {
-    color: red;
+  table td .isHolidy {
+    color: #ff0000;
+  }
+
+  table td .isSaturday {
+    color: #0066ff;
+  }
+
+  table .editIcon>svg {
+    height: 15px;
+    cursor: pointer;
+
+    &:hover>path {
+      color: $palegold;
+    }
+  }
+
+  table .editIcon>svg>path {
+    color: $charcoal;
+    transition: all 0.5s ease;
   }
 
   table th {

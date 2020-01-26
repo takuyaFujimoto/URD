@@ -10,7 +10,7 @@ type RightNaviProps = {
 
 export const RightNavi: React.FC<RightNaviProps> = props => {
   const { contentName, isOpen, rightNaviClose } = props;
-  const rightNaviIsOpen: string = isOpen ? "RightNavi open" : "RightNavi";
+  const rightNaviIsOpen: string = isOpen ? "RightNavi open" : "RightNavi close";
   const content = (x: string) => {
     if (x === ACCOUNT)
       return <div className="hoge">ACCOUNTのcontainersを返すように</div>;

@@ -1,0 +1,107 @@
+@import "../reset.scss";
+@import "../common.scss";
+
+.AttendanceEditModal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: $translucent;
+  width: 100%;
+  height: 100vh;
+
+  .modalWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background: $paper;
+    padding: 20px;
+    border-radius: 20px;
+    width: 600px;
+    height: 600px;
+  }
+
+  .modalHeader {
+    display: flex;
+
+    .isHolidy {
+      color: #ff0000;
+    }
+
+    .isSaturday {
+      color: #0066ff;
+    }
+  }
+
+  .modalMain {
+    padding: 20px;
+
+    .item {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+
+      label {
+        display: block;
+        height: 30px;
+        width: 30px;
+        background: $charcoal;
+      }
+
+      label>svg {
+        position: relative;
+        top: 7px;
+        left: 8px;
+      }
+
+      label>svg>path {
+        color: $palegold;
+      }
+
+      input {
+        min-width: 450px;
+        min-height: 30px;
+        padding-left: 10px;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      textarea {
+        min-width: 480px;
+        height: 200px;
+        white-space: pre-wrap;
+        resize: none;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+
+    .buttonWrapper {
+      padding-left: 20px;
+
+      button {
+        cursor: pointer;
+        height: 50px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 480px;
+        color: $palegold;
+        background: $paper;
+        font-size: $middleFont;
+        transition: all 0.5s ease;
+        outline: none;
+
+        &:hover {
+          color: #fff;
+          background: $palegold;
+        }
+      }
+
+    }
+  }
+}

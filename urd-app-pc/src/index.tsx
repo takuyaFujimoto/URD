@@ -24,7 +24,8 @@ library.add(
   ICON.faTable,
   ICON.faCalendarAlt,
   ICON.faPenNib,
-  ICON.fab
+  ICON.fab,
+  ICON.faClock
 );
 
 ReactDOM.render(

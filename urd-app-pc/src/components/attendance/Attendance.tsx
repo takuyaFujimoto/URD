@@ -4,6 +4,7 @@ import Loding from "../../components/common/Loding";
 import SlideButton from "../../components/common/SlideButton";
 import { ERROR_CODE } from "../../constants/ErrorCode";
 import AttendanceTable from "../../containers/attendance/AttendanceTable";
+import AttendanceEditModal from "../../containers/attendance/AttendanceEditModal";
 import "../../css/attendance/Attendance.scss";
 
 export type AttendanceProps = {
@@ -15,6 +16,7 @@ export type AttendanceProps = {
   year: string;
   month: string;
   tableHeaderName: { [key: string]: string }[];
+  isOpen: boolean;
   dataFetch: () => void;
   prevExecute: () => void;
   nextExecute: () => void;
@@ -30,6 +32,7 @@ const Component: React.FC<AttendanceProps> = props => {
     year,
     month,
     tableHeaderName,
+    isOpen,
     prevExecute,
     nextExecute
   } = props;
@@ -54,6 +57,7 @@ const Component: React.FC<AttendanceProps> = props => {
   return (
     <div className="Attendance">
       {isFetch ? <Loding /> : null}
+      {isOpen ? <AttendanceEditModal /> : null}
       <div className="headContent">
         <div className="leftContents">
           {prev.length !== 0 ? (

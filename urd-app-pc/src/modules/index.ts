@@ -15,9 +15,9 @@ import {
   attendanceReducer
 } from "./attendance/AttendanceReducer";
 import {
-  AttendanceTableState,
-  attendanceTableReducer
-} from "./attendance/AttendanceTableReducer";
+  AttendanceEditModalState,
+  attendanceEditModalReducer
+} from "./attendance/AttendanceEditModalReducer";
 
 export type Store = {
   router: any;
@@ -28,7 +28,7 @@ export type Store = {
   rightNavi: RightNaviState;
   leftNavi: LeftNaviState;
   attendance: AttendanceState;
-  attendanceTable: AttendanceTableState;
+  attendanceEditModal: AttendanceEditModalState;
 };
 
 export const reducer = {
@@ -39,5 +39,5 @@ export const reducer = {
   rightNavi: rightNaviReducer,
   leftNavi: leftNaviReducer,
   attendance: attendanceReducer,
-  attendanceTable: attendanceTableReducer
+  attendanceEditModal: attendanceEditModalReducer
 };

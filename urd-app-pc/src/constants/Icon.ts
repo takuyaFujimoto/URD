@@ -7,7 +7,8 @@ import {
   faTerminal,
   faTable,
   faCalendarAlt,
-  faPenNib
+  faPenNib,
+  faClock
 } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
@@ -21,5 +22,6 @@ export default {
   faTable,
   faCalendarAlt,
   faPenNib,
-  fab
+  fab,
+  faClock
 };

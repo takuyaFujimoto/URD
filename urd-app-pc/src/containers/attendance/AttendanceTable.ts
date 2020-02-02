@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
-import { attendanceActions } from "../../modules/attendance/AttendanceAction";
-import { AttendanceProps } from "../../components/attendance/Attendance";
+import { attendanceEditModalActions } from "../../modules/attendance/AttendanceEditModalAction";
 import { AttendanceTable as component } from "../../components/attendance/AttendanceTable";
 import { Store } from "../../modules/index";
 
@@ -13,12 +12,14 @@ type parentProps = {
 };
 
 function mapStatetoProps(store: Store, props: parentProps) {
-  // const { current, year, month, tableHeaderName}
   return { ...props };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
-  return {};
+  return {
+    modalOpen: (x: { [key: string]: string | boolean }) =>
+      dispatch(attendanceEditModalActions.modalOpen(x))
+  };
 }
 
 export default connect(

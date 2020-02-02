@@ -13,7 +13,8 @@ function mapStatetoProps(store: Store) {
     isFetch: store.attendance.isFetch,
     year: store.attendance.year,
     month: store.attendance.month,
-    tableHeaderName: store.attendance.tableHeaderName
+    tableHeaderName: store.attendance.tableHeaderName,
+    isOpen: store.attendanceEditModal.isOpen
   };
 }
 

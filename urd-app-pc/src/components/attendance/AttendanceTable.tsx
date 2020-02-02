@@ -8,10 +8,11 @@ type AttendanceTableProps = {
   year: string;
   month: string;
   tableHeaderName: { [key: string]: string }[];
+  modalOpen: (x: { [key: string]: string | boolean }) => void;
 };
 
 export const AttendanceTable: React.FC<AttendanceTableProps> = props => {
-  const { current, tableHeaderName } = props;
+  const { current, tableHeaderName, modalOpen } = props;
   const createHead: () => JSX.Element = () => {
     return (
       <thead>
@@ -65,7 +66,7 @@ export const AttendanceTable: React.FC<AttendanceTableProps> = props => {
       case ATTENDANCE_TABLE_HEADER_NAME.edit.value:
         return (
           <td key={index} className="editIcon">
-            <FontAwesomeIcon icon="pen-nib" onClick={() => alert("実装中")} />
+            <FontAwesomeIcon icon="pen-nib" onClick={() => modalOpen(obj)} />
           </td>
         );
       default:

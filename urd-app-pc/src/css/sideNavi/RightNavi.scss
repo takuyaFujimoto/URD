@@ -53,34 +53,6 @@
     h2 {
       font-size: $middleFont;
     }
-
-    .closeButton {
-      margin-left: auto;
-    }
-
-    .closeButton>span {
-      cursor: pointer;
-      display: inline-block;
-      position: relative;
-      margin: 0 20px 0 7px;
-      padding: 0;
-      width: 4px;
-      height: 20px;
-      background: #000;
-      transform: rotate(45deg);
-
-      &::before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: -8px;
-        width: 20px;
-        height: 4px;
-        margin-top: -2px;
-        background: #000;
-      }
-    }
   }
 }
 
